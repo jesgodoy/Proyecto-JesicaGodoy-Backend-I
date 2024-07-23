@@ -27,8 +27,12 @@ router.get("/:pid", async (request, response) => {
 router.post("/", async (request, response) => {
     const newProduct = request.body;
     try {
-        await productManager.addProduct(newProduct);
-        response.status(201).json({ message: "Producto agregado correctamente" });
+
+        const addedProduct = await productManager.addProduct(newProduct);
+        response.status(201).json({ 
+            message: "Producto agregado correctamente",
+            product: addedProduct
+        });
     } catch (error) {
         if (error.message === "Todos los campos deben ser completados para agregar el producto.") {
             response.status(400).json({ error: "Falta un dato obligatorio" });
@@ -46,7 +50,12 @@ router.put("/:pid", async (request, response) => {
 
     try {
         await productManager.updateProduct(id, updatedProduct);
-        response.status(200).json({ message: "Producto actualizado correctamente" });
+        const product = await productManager.getProductById(id);
+
+        response.status(200).json({
+            message: "Producto actualizado correctamente",
+            product: product
+        });
     } catch (error) {
         response.status(400).json({ error: error.message });
     }

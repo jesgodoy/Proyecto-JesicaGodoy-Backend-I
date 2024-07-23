@@ -33,6 +33,7 @@ class ProductManager {
 
         arrayProducts.push(newProduct);
         await this.saveFile(arrayProducts);
+        return newProduct
     }
 
     async getProducts() {
