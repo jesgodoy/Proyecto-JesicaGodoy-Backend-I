@@ -27,17 +27,16 @@ router.get("/:pid", async (request, response) => {
 router.post("/", async (request, response) => {
     const newProduct = request.body;
     try {
-
         const addedProduct = await productManager.addProduct(newProduct);
-        response.status(201).json({ 
+        response.status(201).json({
             message: "Producto agregado correctamente",
             product: addedProduct
         });
     } catch (error) {
         if (error.message === "Todos los campos deben ser completados para agregar el producto.") {
-            response.status(400).json({ error: "Falta un dato obligatorio" });
+            response.status(400).json({ error: "Falta un dato obligatorio", message:"recuerde que los campos title, category, description, price, urlImage, code y stock son obligarorios" });
         } else if (error.message === "El código ya existe en otro producto. Por favor, ingrese un código diferente.") {
-            response.status(400).json({ error: "Código ya existente" });
+            response.status(400).json({ error: "Código ya existente en otro producto" });
         } else {
             response.status(500).json({ error: "Error interno del servidor" });
         }
@@ -51,9 +50,8 @@ router.put("/:pid", async (request, response) => {
     try {
         await productManager.updateProduct(id, updatedProduct);
         const product = await productManager.getProductById(id);
-
         response.status(200).json({
-            message: "Producto actualizado correctamente",
+            message: "Producto se ha actualizado correctamente",
             product: product
         });
     } catch (error) {
@@ -63,6 +61,7 @@ router.put("/:pid", async (request, response) => {
 
 router.delete("/:pid", async (request, response) => {
     const id = parseInt(request.params.pid);
+    
     try {
         await productManager.deleteProduct(id);
         response.status(200).json({ message: "El producto se ha eliminado correctamente" });
@@ -70,4 +69,5 @@ router.delete("/:pid", async (request, response) => {
         response.status(500).json({ error: "Error interno del servidor" });
     }
 });
+
 export default router;

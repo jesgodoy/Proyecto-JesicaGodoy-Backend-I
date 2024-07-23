@@ -58,7 +58,7 @@ class CartManager {
             cart.products.push({ product: productId, quantity });
         }
 
-        await this.saveFile(carts);  
+        await this.saveFile(carts);
         return cart;
     }
 }

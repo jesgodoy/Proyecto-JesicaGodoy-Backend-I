@@ -3,15 +3,15 @@ import CartManager from "../controllers/carts-manager.js";
 
 
 const router = express.Router();
-const cartManager = new CartManager("./src/data/carts.json"); 
+const cartManager = new CartManager("./src/data/carts.json");
 
 router.get("/", async (request, response) => {
-    const limit = parseInt(request.query.limit); 
+    const limit = parseInt(request.query.limit);
     try {
-        const carts = await cartManager.loadCarts(); 
-        response.status(200).json(isNaN(limit) ? carts : carts.slice(0, limit)); 
+        const carts = await cartManager.loadCarts();
+        response.status(200).json(isNaN(limit) ? carts : carts.slice(0, limit));
     } catch (error) {
-        response.status(500).json({ error: "Error interno del servidor" }); 
+        response.status(500).json({ error: "Error interno del servidor" });
     }
 });
 
@@ -30,10 +30,10 @@ router.post("/", async (request, response) => {
 
     try {
         await cartManager.addCart(newCart);
-        response.status(201).json({ message: "Carrito agregado correctamente" }); 
+        response.status(201).json({ message: "Carrito agregado correctamente" });
     } catch (error) {
-        console.error(error); 
-        response.status(500).json({ error: "Error interno del servidor" }); 
+        console.error(error);
+        response.status(500).json({ error: "Error interno del servidor" });
     }
 });
 
@@ -43,7 +43,7 @@ router.post("/:cid/product/:pid", async (req, res) => {
     const quantity = req.body.quantity || 1;
 
     try {
-        const cartUpdated  = await cartManager.addProductToCart(cartId, productId, quantity);
+        const cartUpdated = await cartManager.addProductToCart(cartId, productId, quantity);
         res.status(200).json(cartUpdated.products);
     } catch (error) {
         console.error(error);
