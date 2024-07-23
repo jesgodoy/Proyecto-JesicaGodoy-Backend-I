@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "title": "Base de Maquillaje Hidratante",
+    "category": "Rostro",
+    "description": "Base ligera que proporciona hidratación y un acabado natural.",
+    "price": 25,
+    "code": "BM001",
+    "stock": 50,
+    "status": true,
+    "thumbnails": [
+      "base1.jpg",
+      "base2.jpg",
+      "base3.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Polvo Compacto Translucido",
+    "category": "Rostro",
+    "description": "Polvo compacto que fija el maquillaje y controla el brillo.",
+    "price": 20,
+    "code": "PC002",
+    "stock": 30,
+    "status": true,
+    "thumbnails": [
+      "polvo1.jpg",
+      "polvo2.jpg",
+      "polvo3.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Corrector Líquido",
+    "category": "Rostro",
+    "description": "Corrector de alta cobertura que disimula imperfecciones y ojeras.",
+    "price": 18,
+    "code": "CL003",
+    "stock": 40,
+    "status": true,
+    "thumbnails": [
+      "corrector1.jpg",
+      "corrector2.jpg",
+      "corrector3.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Sombra de Ojos en Polvo",
+    "category": "Ojos",
+    "description": "Sombra de ojos en polvo con acabado brillante y de larga duración.",
+    "price": 15,
+    "code": "SO004",
+    "stock": 60,
+    "status": true,
+    "thumbnails": [
+      "sombra1.jpg",
+      "sombra2.jpg",
+      "sombra3.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Delineador en Gel",
+    "category": "Ojos",
+    "description": "Delineador de ojos en gel con fórmula resistente al agua.",
+    "price": 22,
+    "code": "DG005",
+    "stock": 35,
+    "status": true,
+    "thumbnails": [
+      "delineador1.jpg",
+      "delineador2.jpg",
+      "delineador3.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Máscara de Pestañas Voluminizadora",
+    "category": "Ojos",
+    "description": "Máscara que aporta volumen y definición a las pestañas.",
+    "price": 24,
+    "code": "MP006",
+    "stock": 45,
+    "status": true,
+    "thumbnails": [
+      "mascara1.jpg",
+      "mascara2.jpg",
+      "mascara3.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Barra de Labios Mate",
+    "category": "Labios",
+    "description": "Barra de labios con acabado mate y larga duración.",
+    "price": 19,
+    "code": "BL007",
+    "stock": 55,
+    "status": true,
+    "thumbnails": [
+      "barra1.jpg",
+      "barra2.jpg",
+      "barra3.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Brillo Labial Hidratante",
+    "category": "Labios",
+    "description": "Brillo labial que proporciona hidratación y un toque de color.",
+    "price": 17,
+    "code": "BL008",
+    "stock": 50,
+    "status": true,
+    "thumbnails": [
+      "brillo1.jpg",
+      "brillo2.jpg",
+      "brillo3.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Lápiz de Cejas Definidor",
+    "category": "Rostro",
+    "description": "Lápiz para cejas que define y da forma con precisión.",
+    "price": 12,
+    "code": "LC009",
+    "stock": 40,
+    "status": true,
+    "thumbnails": [
+      "lapiz1.jpg",
+      "lapiz2.jpg",
+      "lapiz3.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Blush Compacto",
+    "category": "Rostro",
+    "description": "Blush en polvo compacto que añade un toque de color natural a las mejillas.",
+    "price": 21,
+    "code": "BC010",
+    "stock": 30,
+    "status": true,
+    "thumbnails": [
+      "blush1.jpg",
+      "blush2.jpg",
+      "blush3.jpg"
+    ]
+  }
+]
