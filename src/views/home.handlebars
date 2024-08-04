@@ -1,15 +1,15 @@
 <div>
-    <div class="bg-red">
+    <div class="bg-red p-2">
         <h1 class="text-center py-2 text-light">Nuestros Productos </h1>
     </div>
 </div>
 
 
 
-<div class="container ">
+<div class="container mt-5">
     <div class="row">
         {{#each products}}
-        <div class="col-md-4 mb-3">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-3 mb-3">
             <div class="container ">
                 <div class="card h-100 p-2">
                     <img src={{this.urlImage}} class="card-img-top" alt={{this.title}}>
@@ -19,7 +19,7 @@
                         <div class="card-description ">
                             <p class="card-text">{{this.description}}</p>
                         </div>
-                        <p class="text-center fs-4">$ {{this.price}}</p>
+                        <h6 class="text-center">$ {{this.price}}</h6>
                     </div>
                     <button type="button" class="btn">Comprar</button>
                 </div>

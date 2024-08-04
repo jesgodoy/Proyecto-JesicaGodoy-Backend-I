@@ -1,0 +1,68 @@
+<div class="bg-red text-light p-2">
+        <h1 class="text-center">Real Time Products</h1>
+</div>
+
+
+<div class="container mt-5">
+    <h2 class="text-center">Formulario de Producto</h2>
+    <div class="container w-50 ">
+        <form id="productForm" class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" id="title" placeholder="Ingresa el nombre del producto">
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Categoria</label>
+
+                    <select class="form-select" id="category">
+                        <option value="" disabled selected>Selecciona una categoría</option>
+                        <option class="hola" value="ojos">Ojos</option>
+                        <option value="boca">Boca</option>
+                        <option value="rostro">Rostro</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descripcion</label>
+                    <textarea class="form-control" id="description" rows="4"
+                        placeholder="Ingresa una descripción del producto"></textarea>
+                </div>
+                  
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div>
+                    <label for="urlImage" class="form-label">Imagen</label>
+                    <input type="text" class="form-control" id="urlImage" placeholder="Ingresar url de la imagen">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="price" placeholder="Ingresa el precio del producto">
+                </div>
+
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock" placeholder="Ingresa la cantidad en stock"
+                        min="1">
+                </div>
+                <div class="mb-3">
+                    <label for="code" class="form-label">Código</label>
+                    <input type="text" class="form-control" id="code" placeholder="Ingresa el código del producto">
+                </div>
+            </div>
+             <div class="text-center">
+                    <button type="button" class="btn btn-primary " id="btnSend">Enviar</button>
+                </div>
+        </form>
+    </div>
+</div>
+
+<div class="container my-5">
+    <h2 class="text-center">Lista de Productos</h2>
+    <div id="productsContainer" class="row"></div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+
+<script src="js/main.js"></script>

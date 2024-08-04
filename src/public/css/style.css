@@ -10,7 +10,12 @@ body{
 .bg-red{
     background-color: #8a1e00;
 }
-
+h5{
+   font-size: 1rem; 
+}
+p{
+    font-size: 0.75em;
+}
 
 .card {
     display: flex;
@@ -69,3 +74,28 @@ body{
     border-color: #721c24; 
     color: #fff; 
 }
+.btn:hover {
+    background-color: rgb(52, 2, 2); 
+    border-color: #721c24; 
+    color: #fff; 
+}
+
+.form-control {
+    border: 2px solid #8a1e00;
+    transition: border-color 0.3s ease; 
+}
+
+.form-control:focus {
+    border-color: #f8d7da; 
+    box-shadow: 0 0 0 0.2rem #721c2588; 
+}
+.form-select {
+    border: 2px solid #721c24;
+    transition: border-color 0.3s ease; 
+}
+
+.form-select:focus {
+    border-color: #f8d7da; 
+    box-shadow: 0 0 0 0.2rem #721c2588; 
+}
+
