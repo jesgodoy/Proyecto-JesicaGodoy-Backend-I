@@ -5,14 +5,14 @@ const router = Router();
 
 const productManager = new ProductManager("./src/data/products.json");
 
-router.get("/realtimeproducts", async(req,res)=>{
+router.get("/realtimeproducts", async (req, res) => {
     res.render("realtimeproducts")
 })
 
 
-router.get("/products", async(req, res)=>{
-    const products =await productManager.getProducts()
-    res.render("home", {products});
+router.get("/products", async (req, res) => {
+    const products = await productManager.getProducts()
+    res.render("home", { products });
 });
 
 

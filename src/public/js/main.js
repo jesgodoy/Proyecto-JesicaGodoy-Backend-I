@@ -6,37 +6,36 @@ socket.on("allProducts", (data) => {
 
 function addProductsIo() {
     const newProductIo = {
-        title: document.getElementById("title").value, 
+        title: document.getElementById("title").value,
         category: document.getElementById("category").value,
         urlImage: document.getElementById("urlImage").value,
         description: document.getElementById("description").value,
         price: document.getElementById("price").value,
         stock: document.getElementById("stock").value,
         code: document.getElementById("code").value,
-        
+
     }
 
     socket.emit("addProductsIo", newProductIo);
-    
-    socket.on("addProductsResponse", (response) => {
-        if (response.success) { 
-                      
+
+    socket.once("addProductsResponse", (response) => {
+        if (response.success) {
+            alert("el producto de ha creado correctamente");
             document.getElementById("productForm").reset();
-            alert("el producto de ha creado correctamente"); 
-        }else{
+        } else {
             alert("Ha ocurrido un error: " + (response.errorMessage));
         }
     });
 }
 
 document.getElementById("btnSend").addEventListener("click", (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     addProductsIo();
 });
 
 const renderProductos = (data) => {
     const productsContainer = document.getElementById("productsContainer");
-    productsContainer.innerHTML = ""; 
+    productsContainer.innerHTML = "";
 
     data.forEach(prod => {
         const card = document.createElement("div");
@@ -66,13 +65,12 @@ const renderProductos = (data) => {
 
 }
 function deleteProductIo(id) {
-    console.log("Enviando ID para eliminar:", id);
-    socket.emit('deleteProduct', id); 
-    
-    socket.on("deleteProductResponse", (response) => {
-        if (response.success) { 
-            alert("el producto se ha eliminado correctamente");           
-        }else{
+    socket.emit('deleteProduct', id);
+
+    socket.once("deleteProductResponse", (response) => {
+        if (response.success) {
+            alert("el producto se ha eliminado correctamente");
+        } else {
             alert("Ha ocurrido un error");
         }
     });

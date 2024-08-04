@@ -1,5 +1,5 @@
 <div class="bg-red text-light p-2">
-        <h1 class="text-center">Real Time Products</h1>
+    <h1 class="text-center">Real Time Products</h1>
 </div>
 
 
@@ -14,7 +14,6 @@
                 </div>
                 <div class="mb-3">
                     <label for="category" class="form-label">Categoria</label>
-
                     <select class="form-select" id="category">
                         <option value="" disabled selected>Selecciona una categoría</option>
                         <option class="hola" value="ojos">Ojos</option>
@@ -27,7 +26,6 @@
                     <textarea class="form-control" id="description" rows="4"
                         placeholder="Ingresa una descripción del producto"></textarea>
                 </div>
-                  
             </div>
             <div class="col-lg-6 col-md-12">
                 <div>
@@ -49,16 +47,21 @@
                     <input type="text" class="form-control" id="code" placeholder="Ingresa el código del producto">
                 </div>
             </div>
-             <div class="text-center">
-                    <button type="button" class="btn btn-primary " id="btnSend">Enviar</button>
-                </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary " id="btnSend">Enviar</button>
+            </div>
         </form>
     </div>
 </div>
 
-<div class="container my-5">
-    <h2 class="text-center">Lista de Productos</h2>
-    <div id="productsContainer" class="row"></div>
+<div class="my-5">
+    <div class="bg-red text-light p-2 mb-3">
+        <h2 class="text-center">Lista de Productos</h2>
+    </div>
+    <div class=" container">
+        <div id="productsContainer" class="row "></div>
+    </div>
+    
 </div>
 
 
