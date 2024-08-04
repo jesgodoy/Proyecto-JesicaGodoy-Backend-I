@@ -1,6 +1,6 @@
 # Proyecto Backend I
 
-Este proyecto es una aplicación que utiliza Handlebars como motor de plantillas y WebSocket para actualizar en tiempo real una lista de productos. Implementa conceptos clave del curso de backend, como la gestión de productos y carritos de compra, así como la actualización dinámica de la interfaz sin necesidad de recargar la página.
+Este proyecto es una aplicación de ecommerce desarrollada como parte del curso de Backend en Coder. El objetivo del proyecto es aplicar los conceptos aprendidos durante el curso para crear una solución completa y funcional para un ecommerce utilizando Node.js, Express, Express-Handlebars y Socket.io.
 
 ## Tabla de Contenidos
 
@@ -8,7 +8,6 @@ Este proyecto es una aplicación que utiliza Handlebars como motor de plantillas
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Rutas de la API](#rutas-de-la-api)
-- 
 
 ## Descripción
 
@@ -44,7 +43,7 @@ Sigue estos pasos para configurar el proyecto en tu entorno local:
 
 4. **Inicia el servidor**:
     ```bash
-    npm start
+    npm run dev
     ```
 
    El servidor se ejecutará en `http://localhost:8080`.
