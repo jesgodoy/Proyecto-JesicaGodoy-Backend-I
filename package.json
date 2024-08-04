@@ -10,7 +10,8 @@
   "author": "Jesica Godoy",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

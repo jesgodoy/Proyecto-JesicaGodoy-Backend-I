@@ -1,0 +1,31 @@
+<div>
+    <div class="bg-red">
+        <h1 class="text-center py-2 text-light">Nuestros Productos </h1>
+    </div>
+</div>
+
+
+
+<div class="container ">
+    <div class="row">
+        {{#each products}}
+        <div class="col-md-4 mb-3">
+            <div class="container ">
+                <div class="card h-100 p-2">
+                    <img src={{this.urlImage}} class="card-img-top" alt={{this.title}}>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center">{{this.title}}</h5>
+                        <p>{{this.category}}</p>
+                        <div class="card-description ">
+                            <p class="card-text">{{this.description}}</p>
+                        </div>
+                        <p class="text-center fs-4">$ {{this.price}}</p>
+                    </div>
+                    <button type="button" class="btn">Comprar</button>
+                </div>
+            </div>
+            
+        </div>
+        {{/each}}
+    </div>
+</div>
