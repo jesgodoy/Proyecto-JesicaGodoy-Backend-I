@@ -38,7 +38,7 @@ p {
 }
 
 .card-description {
-    height: 100px;
+    height: 120px;
     overflow: hidden;
     margin-bottom: 1rem;
     display: flex;
