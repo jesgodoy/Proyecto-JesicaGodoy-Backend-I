@@ -30,7 +30,7 @@ class CartManager {
         try {
             const cart = await this.getCartById(id);
             if (!cart) {
-                throw new Error("Carrito no encontrado"); // Maneja el caso en que el carrito no existe
+                throw new Error("Carrito no encontrado"); 
             }
 
             const existingProduct = cart.cart.find(prod => prod.product._id.toString() === productId);
