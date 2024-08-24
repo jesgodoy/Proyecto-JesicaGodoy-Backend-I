@@ -1,6 +1,6 @@
 # Proyecto Backend I
 
-Este proyecto es una aplicación de ecommerce desarrollada como parte del curso de Backend en Coder. El objetivo del proyecto es aplicar los conceptos aprendidos durante el curso para crear una solución completa y funcional para un ecommerce utilizando Node.js, Express, Express-Handlebars y Socket.io.
+Este proyecto es una aplicación de ecommerce desarrollada como parte del curso de Backend en Coder. El objetivo del proyecto es aplicar los conceptos aprendidos durante el curso para crear una solución completa y funcional para un ecommerce utilizando Node.js, Express, Express-Handlebars Socket.io , mongoose y modngoDB 
 
 ## Tabla de Contenidos
 
@@ -11,16 +11,16 @@ Este proyecto es una aplicación de ecommerce desarrollada como parte del curso 
 
 ## Descripción
 
-### Primera Preentrega
+### Proyecto Final
 
-Esta fase del proyecto es una API desarrollada con Node.js y Express para gestionar productos y carritos de compra. La aplicación escucha en el puerto 8080 y utiliza archivos JSON para la persistencia de datos.
-
-### Segunda Preentrega
-
-Se ha integrado Handlebars para renderizar vistas en el servidor y WebSocket para la comunicación en tiempo real entre el servidor y el cliente. La aplicación incluye dos vistas principales:
+Este proyecto es una API desarrollada con Node.js y Express para gestionar productos y carritos de compra. La aplicación escucha en el puerto 8080 
+Se ha integrado ademas  Handlebars para renderizar vistas en el servidor
 
 1. **Lista de Productos**: Disponible en la ruta `/products`, muestra todos los productos.
-2. **Productos en Tiempo Real**: Disponible en la ruta `/realtimeproducts`, permite la actualización en tiempo real de la lista de productos, incluye un formulario para crear nuevos productos y opciones para eliminar productos existentes.
+2. **detalle del carrito**: Disponible en la ruta `/carts/:cid`, permite ver el detalle delos productos agregados en el carrito
+3. **lista de procuctos**: Disponible en la ruta `/api/products`, permite ver todos los productos pero desde una vison de array
+4. **lista de carritos**: Disponible en la ruta `/api/carts`, permite ver todos los carritos pero desde una vison de array
+
 
 ## Instalación
 

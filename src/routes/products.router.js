@@ -6,7 +6,7 @@ const productManager = new ProductManager();
 
 router.get("/", async (req, res) => {
     try {
-        const { limit = 10, page = 1, sort, query } = req.query;
+        const { limit = 100, page = 1, sort, query } = req.query;
 
         const products = await productManager.getProducts({
             limit: parseInt(limit),
@@ -38,7 +38,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get('/:pid', async (req, res) => {
-    const id = req.params.pid; // Mongoose usa cadenas para los IDs
+    const id = req.params.pid; 
     try {
         const searchProduct = await productManager.getProductById(id);
         res.status(searchProduct ? 200 : 404).json(searchProduct || { error: "¡Producto no encontrado!" });
@@ -67,7 +67,7 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:pid', async (req, res) => {
-    const id = req.params.pid; // Mongoose usa cadenas para los IDs
+    const id = req.params.pid;
     const updatedProduct = req.body;
 
     try {
@@ -82,7 +82,7 @@ router.put('/:pid', async (req, res) => {
 });
 
 router.delete('/:pid', async (req, res) => {
-    const id = req.params.pid; // Mongoose usa cadenas para los IDs
+    const id = req.params.pid; 
 
     try {
         const result = await productManager.deleteProduct(id);

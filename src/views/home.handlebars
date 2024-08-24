@@ -1,51 +1,46 @@
-<div>
-
-    <div class="container">
-        <div class="bg-red p-2">
-            <h1 class="text-center py-2 text-light">Nuestros Productos</h1>
-        </div>
-        <div class="container mt-4">
-            <div class="row">
-                {{#each productos}}
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card h-100 p-1">
-                        <img src="{{img}}" class="card-img-top custom-size" alt="{{title}}">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title text-center">{{title}}</h5>
-                            <p class="text-center">{{category}}</p>
-                            <div class="card-description">
-                                <p class="card-text">{{description}}</p>
-                            </div>
-                            <h6 class="text-center">$ {{price}}</h6>
-                        </div>
-                        <div class="text-center mb-2">
-                            <button type="button" class="btn btn-primary btn-sm">Comprar</button>
-                        </div>
+<div class="container">
+    <div class="bg-red p-2">
+        <h1 class="text-center py-2 text-light">Nuestros Productos</h1>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            {{#each productos}}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="card h-100 p-1">
+                    <img src="{{img}}" class="card-img-top custom-size" alt="{{title}}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center">{{title}}</h5>
+                        <p class="text-center">{{category}}</p>
+                        <h6 class="text-center">$ {{price}}</h6>
+                    </div>
+                    <div class="text-center mb-2">
+                        <a href="/products/{{_id}}" class="btn btn-primary btn-sm">Ver Detalles</a>
                     </div>
                 </div>
-                {{/each}}
             </div>
-        </div>
-        <div class="container mt-4">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    {{#if hasPrevPage}}
-                    <li class="page-item">
-                        <a class="page-link" href="/products?page={{prevPage}}" aria-label="Previous">
-                            <span aria-hidden="true">&laquo; Anterior</span>
-                        </a>
-                    </li>
-                    {{/if}}
-
-                    {{#if hasNextPage}}
-                    <li class="page-item">
-                        <a class="page-link" href="/products?page={{nextPage}}" aria-label="Next">
-                            <span aria-hidden="true">Siguiente &raquo;</span>
-                        </a>
-                    </li>
-                    {{/if}}
-                </ul>
-            </nav>
-            <p class="text-center mt-3">Página {{currentPage}} de {{totalPages}}</p>
+            {{/each}}
         </div>
     </div>
+    <div class="container mt-4">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {{#if hasPrevPage}}
+                <li class="page-item">
+                    <a class="page-link" href="/products?page={{prevPage}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; Anterior</span>
+                    </a>
+                </li>
+                {{/if}}
+
+                {{#if hasNextPage}}
+                <li class="page-item">
+                    <a class="page-link" href="/products?page={{nextPage}}" aria-label="Next">
+                        <span aria-hidden="true">Siguiente &raquo;</span>
+                    </a>
+                </li>
+                {{/if}}
+            </ul>
+        </nav>
+        <p class="text-center mt-3">Página {{currentPage}} de {{totalPages}}</p>
+    </div>
+</div>

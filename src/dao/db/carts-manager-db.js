@@ -17,7 +17,7 @@ class CartManager {
             const cart = await CartModel.findById(id)
                 .populate({
                     path: 'cart.product',
-                    select: 'id'
+                    select: 'id title price quantity'
                 });
             return cart || null;
         } catch (error) {
@@ -73,6 +73,25 @@ class CartManager {
         } catch (error) {
             console.error("Error al eliminar el carrito por id:", error);
             throw error;
+        }
+    }
+
+    async removeProductFromCart(cartId, productId) {
+        try {
+            
+            const carrito = await this.getCartById(cartId);
+            if (!carrito) return null; 
+
+            const indexProducto = carrito.products.findIndex(p => p.productId === productId);
+            if (indexProducto === -1) return null; 
+
+            carrito.products.splice(indexProducto, 1);
+
+            await this.updateCart(cartId, carrito);
+
+            return carrito;
+        } catch (error) {
+            throw new Error("Error al eliminar el producto del carrito");
         }
     }
 

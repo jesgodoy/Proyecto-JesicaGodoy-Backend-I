@@ -1,0 +1,20 @@
+<main class="container mt-4">
+    {{#if product}}
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{product.img}}" class="img-fluid" alt="{{product.title}}">
+        </div>
+        <div class="col-md-6">
+            <h1>{{product.title}}</h1>
+            <p><strong>Categoría:</strong> {{product.category}}</p>
+            <p><strong>Descripción:</strong></p>
+            <p>{{product.description}}</p>
+            <h3>Precio: ${{product.price}}</h3>
+            <a href="/products" class="btn btn-secondary">Volver a productos</a>
+            <button class="btn btn-primary">Agregar al carrito</button>
+        </div>
+    </div>
+    {{else}}
+    <p>Producto no encontrado.</p>
+    {{/if}}
+</main>

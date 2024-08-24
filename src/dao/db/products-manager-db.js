@@ -33,7 +33,7 @@ class ProductManager {
         }
     }
 
-    async getProducts({ limit = 10, page = 1, sort, query } = {}) {
+    async getProducts({ limit = 100, page = 1, sort, query } = {}) {
         try {
             const skip = (page - 1) * limit;
 
@@ -100,6 +100,20 @@ class ProductManager {
             throw error;
         }
     }
+
+    async deleteProduct(id) {
+        try {
+            const result = await ProductModel.findByIdAndDelete(id);
+            if (!result) {
+                throw new Error("Producto no encontrado");
+            }
+            return result;
+        } catch (error) {
+            console.error("No se pudo eliminar el producto", error);
+            throw error;
+        }
+    }
+    
 
 }
 
