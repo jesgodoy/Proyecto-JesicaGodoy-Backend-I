@@ -1,12 +1,12 @@
 import express from 'express';
-import ProductManager from '../dao/db/products-manager-db.js'; 
+import ProductManager from '../dao/db/products-manager-db.js';
 
 const router = express.Router();
-const productManager = new ProductManager(); 
+const productManager = new ProductManager();
 
 router.get("/", async (req, res) => {
     try {
-        const { limit = 100, page = 1, sort, query } = req.query;
+        const { limit = 15, page = 1, sort, query } = req.query;
 
         const products = await productManager.getProducts({
             limit: parseInt(limit),
@@ -38,7 +38,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get('/:pid', async (req, res) => {
-    const id = req.params.pid; 
+    const id = req.params.pid;
     try {
         const searchProduct = await productManager.getProductById(id);
         res.status(searchProduct ? 200 : 404).json(searchProduct || { error: "¡Producto no encontrado!" });
@@ -82,7 +82,7 @@ router.put('/:pid', async (req, res) => {
 });
 
 router.delete('/:pid', async (req, res) => {
-    const id = req.params.pid; 
+    const id = req.params.pid;
 
     try {
         const result = await productManager.deleteProduct(id);

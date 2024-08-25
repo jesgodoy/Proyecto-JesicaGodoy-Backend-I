@@ -26,6 +26,8 @@ class ProductManager {
             });
     
             await newProduct.save();
+
+            return newProduct;
         
         } catch (error) {
             console.error('Error al agregar el producto:', error.message);
@@ -33,7 +35,7 @@ class ProductManager {
         }
     }
 
-    async getProducts({ limit = 100, page = 1, sort, query } = {}) {
+    async getProducts({ limit = 15, page = 1, sort, query } = {}) {
         try {
             const skip = (page - 1) * limit;
 

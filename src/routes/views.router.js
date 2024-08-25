@@ -4,11 +4,7 @@ import CartManager from "../dao/db/carts-manager-db.js";
 
 const router = Router();
 const productManager = new ProductManager();
-const cartManager = new CartManager(); 
-
-
-
-
+const cartManager = new CartManager();
 
 router.get("/products", async (req, res) => {
     try {
@@ -20,7 +16,7 @@ router.get("/products", async (req, res) => {
         });
 
         const nuevoArray = products.docs.map((product) => {
-            return product.toObject(); 
+            return product.toObject();
         });
 
         res.render("home", {
@@ -32,7 +28,7 @@ router.get("/products", async (req, res) => {
             currentPage: products.page,
             totalPages: products.totalPages,
         });
-        
+
     } catch (error) {
         console.error("Error al obtener los productos", error);
         res.status(500).json({
@@ -52,13 +48,13 @@ router.get('/carts/:cid', async (req, res) => {
         }
 
         const processedCart = {
-            _id: cart._id.toString(), 
+            _id: cart._id.toString(),
             cart: cart.cart.map(item => ({
-                productId: item.product._id.toString(), 
+                productId: item.product._id.toString(),
                 title: item.product.title,
                 price: item.product.price,
                 quantity: item.quantity,
-                _id: item._id.toString() 
+                _id: item._id.toString()
             }))
         };
 
