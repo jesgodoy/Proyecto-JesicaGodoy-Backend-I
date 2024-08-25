@@ -1,6 +1,5 @@
 import ProductModel from '../models/product.model.js';
 
-
 class ProductManager {
 
     async addProduct({ title, category, description, price, img, code, stock, thumbnails = [] }) {
@@ -12,7 +11,7 @@ class ProductManager {
             if (existingProduct) {
                 throw new Error("El código del producto ya existe. Por favor, ingrese un código diferente.");
             }
-    
+
             const newProduct = new ProductModel({
                 title,
                 category,
@@ -24,11 +23,11 @@ class ProductManager {
                 status: true,
                 thumbnails
             });
-    
+
             await newProduct.save();
 
             return newProduct;
-        
+
         } catch (error) {
             console.error('Error al agregar el producto:', error.message);
             throw error;
@@ -115,7 +114,7 @@ class ProductManager {
             throw error;
         }
     }
-    
+
 
 }
 
