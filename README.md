@@ -1,6 +1,6 @@
 # Proyecto Backend I
 
-Este proyecto es una aplicación de ecommerce desarrollada como parte del curso de Backend en Coder. El objetivo del proyecto es aplicar los conceptos aprendidos durante el curso para crear una solución completa y funcional para un ecommerce utilizando Node.js, Express, Express-Handlebars Socket.io , mongoose y modngoDB 
+Este proyecto es una aplicación de ecommerce desarrollada como parte del curso de Backend en Coder. El objetivo del proyecto es aplicar los conceptos aprendidos durante el curso para crear una solución completa y funcional para un ecommerce utilizando Node.js, Express, Express-Handlebars, Socket.io , mongoose y modngoDB 
 
 ## Tabla de Contenidos
 
@@ -20,6 +20,7 @@ Se ha integrado ademas  Handlebars para renderizar vistas en el servidor
 2. **detalle del carrito**: Disponible en la ruta `/carts/:cid`, permite ver el detalle delos productos agregados en el carrito
 3. **lista de procuctos**: Disponible en la ruta `/api/products`, permite ver todos los productos pero desde una vison de array
 4. **lista de carritos**: Disponible en la ruta `/api/carts`, permite ver todos los carritos pero desde una vison de array
+5. **real time prodcts**: Disponible en la ruta `/realtimeproducts`, permite ver todos los productos y da opcion de eliminarlos, ademas cuenta con un formulario para crear nuevos productos
 
 
 ## Instalación
