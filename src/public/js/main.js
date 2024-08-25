@@ -15,7 +15,6 @@ function addProductsIo() {
     const codeElem = document.getElementById("code");
 
    
-
    
     const newProductIo = {
         title: titleElem.value,

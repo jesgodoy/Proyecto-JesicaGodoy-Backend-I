@@ -32,6 +32,8 @@ const httpServer = app.listen(PUERTO, () => {
 });
 
 
+
+// socket para que funcione con la base de datos
 const io = new Server(httpServer);
 const productManager = new ProductManager();
 
