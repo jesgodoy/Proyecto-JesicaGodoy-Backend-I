@@ -38,13 +38,19 @@ router.get("/:cid", async (request, response) => {
     }
 });
 
-router.delete("/:cid", async (request, response) => {
-    const cartId = request.params.cid;
+router.delete("/:cid/product/:pid", async (req, res) => {
+    const cartId = req.params.cid;
+    const productId = req.params.pid;
+
     try {
-        const deletedCart = await cartManager.deleteCartById(cartId);
-        response.status(200).json({ message: "Carrito eliminado correctamente" });
+        const cartUpdated = await cartManager.removeProductFromCart(cartId, productId);
+        if (cartUpdated === null) {
+            return res.status(404).send("Producto no encontrado en el carrito");
+        }
+        res.status(200).json(cartUpdated);
     } catch (error) {
-        response.status(500).json({ error: "Error interno del servidor" });
+        console.error(error);
+        res.status(500).send("Error al eliminar el producto del carrito");
     }
 });
 
@@ -63,25 +69,19 @@ router.post("/:cid/product/:pid", async (req, res) => {
     }
 });
 
-router.delete("/:cid/products/:pid", async (req, res) => {
+router.delete("/:cid/product/:pid", async (req, res) => {
     const cartId = req.params.cid;
     const productId = req.params.pid;
 
     try {
-        
-        const cartActualizado = await cartManager.removeProductFromCart(cartId, productId);
-
-        if (cartActualizado) {
-            res.status(200).json({
-                message: "Producto eliminado del carrito correctamente",
-                cart: cartActualizado
-            });
-        } else {
-            res.status(404).json({ error: "Carrito o producto no encontrado" });
+        const cartUpdated = await cartManager.removeProductFromCart(cartId, productId);
+        if (cartUpdated === null) {
+            return res.status(404).send("Producto no encontrado en el carrito");
         }
+        res.status(200).json(cartUpdated);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Error interno del servidor" });
+        console.error("Error al eliminar el producto del carrito:", error.message);
+        res.status(500).send("Error al eliminar el producto del carrito");
     }
 });
 

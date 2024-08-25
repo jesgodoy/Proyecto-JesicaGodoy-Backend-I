@@ -29,17 +29,13 @@ class CartManager {
     async addProductToCart(id, productId, quantity = 1) {
         try {
             const cart = await this.getCartById(id);
-            if (!cart) {
-                throw new Error("Carrito no encontrado"); 
-            }
+            !cart && (() => { throw new Error("Carrito no encontrado"); })();
 
             const existingProduct = cart.cart.find(prod => prod.product._id.toString() === productId);
 
-            if (existingProduct) {
-                existingProduct.quantity += quantity;
-            } else {
-                cart.cart.push({ product: productId, quantity });
-            }
+            existingProduct
+                ? existingProduct.quantity += quantity
+                : cart.cart.push({ product: productId, quantity });
 
             cart.markModified("cart");
             await cart.save();
@@ -66,9 +62,8 @@ class CartManager {
     async deleteCartById(id) {
         try {
             const result = await CartModel.findByIdAndDelete(id);
-            if (!result) {
-                throw new Error("Carrito no encontrado");
-            }
+            !result && (() => { throw new Error("Carrito no encontrado"); })();
+
             return result;
         } catch (error) {
             console.error("Error al eliminar el carrito por id:", error);
@@ -76,22 +71,25 @@ class CartManager {
         }
     }
 
+    // removeProductFromCart elimina el producto por ID independientemente de la cantidad que tenga en en carrito
     async removeProductFromCart(cartId, productId) {
         try {
-            
-            const carrito = await this.getCartById(cartId);
-            if (!carrito) return null; 
+            const cart = await this.getCartById(cartId);
+            !cart && (() => { throw new Error("Carrito no encontrado"); })();
 
-            const indexProducto = carrito.products.findIndex(p => p.productId === productId);
-            if (indexProducto === -1) return null; 
+            const indexProducto = cart.cart.findIndex(prod => prod.product._id.toString() === productId);
+            if (indexProducto === -1) {
+                throw new Error("Producto no encontrado en el carrito");
+            }
 
-            carrito.products.splice(indexProducto, 1);
+            cart.cart.splice(indexProducto, 1);
 
-            await this.updateCart(cartId, carrito);
-
-            return carrito;
+            cart.markModified("cart");
+            await cart.save();
+            return cart;
         } catch (error) {
-            throw new Error("Error al eliminar el producto del carrito");
+            console.error("Error al eliminar el producto del carrito:", error);
+            throw error;
         }
     }
 
